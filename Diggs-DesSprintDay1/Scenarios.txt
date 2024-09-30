@@ -1,0 +1,17 @@
+Nicole is a sophomore at Uptown High School. Her day-to-day is very eventful with her social life and athletics taking up most of her time. It doesn’t help that she tends to procrastinate or forget about assignments.
+
+She is on the school’s volleyball team and is currently preoccupied with the upcoming regionals, in her free time she enjoys hanging out with her friends, however, this leaves her with little time to focus on school. She does use a calendar app to keep track of important dates for regionals, tests, projects, and parties, however, most of her smaller assignments are on Canvas and she often forgets to check both. 
+
+She needs a site that allows her to consolidate the two, so she asked around and discovered that the volleyball team uses an app called Hive-Mind. Hive-Mind is a collaborative scheduling app that allows groups to easily share events/tasks. 
+
+She started using Hive-Mind and with the volleyball team already having a group created, all she had to do was join the group and connect her Canvas page in order to get a collective schedule. Now she only needs to worry about setting up personal events on the site since the rest is automatically taken care of. 
+
+
+
+Mordecai is a senior at Maine State University studying Data Science. He taking several classes and has group projects in two of these classes but is having trouble with coordinating both teams and keeping track of the groups’ progress. 
+
+He is currently working on projects in his Predictive Analytics and Data in Society classes. He has group chats with the project groups but they are a bit disorganized because they have difficulty assigning work and communicating their progress. It doesn’t help that Mordecai has two groups and confuses the two since both are disorganized. 
+
+What he needs is an app or website that allows the groups to collectively specify tasks and set goals in a scheduled manner. He asked his professors and they recommended Hive-Mind, a collaborative scheduling app that allows groups to easily share events/tasks. 
+
+He and his teams set up Hive-Mind projects that have independent goals and tasks. This allows him to see and organize his tasks in his calendar as well as update his team members on his progress.
