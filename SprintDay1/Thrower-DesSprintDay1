@@ -1,0 +1,33 @@
+Persona: Bob Hawke, age 24, is senior at the University of Texas majoring in criminal justice. He hopes to transfer to a law school after graduating. He likes to spend his free time reading case law and he also spends time after school at a debate club. He often has a ton of paperwork to do in the form of reports, notes, annotations, and readings.
+
+Scenarios: 
+
+1. Bob is reading through a new case for his collaborative capstone project. He opens HiveMind and starts a new note on the shared page, summarizing key case facts, rulings, and precedent (I've been binging Suits on Netflix lol). Bob tags two classmates and organizes the notes into a timeline so that everyone will be aware of their tasks and due dates.
+
+2. Bob is now the captain of the debate team. The team is debating the results of Roe v. Wade. He opens a timeline his teammates started on HiveMind and sees that each debate point is laid out across a schedule leading up to the debate. Bob claims a few points related to the historical context of the legal framework to assign himself the task of gathering research.
+
+
+
+
+User Stories: 
+
+1. As a student, I need a way to quickly and simply jot down notes and tasks.
+
+2. As a student, I need a way to see what tasks my group members are working on for a project.
+
+3. As a student, I need a way to see each due date for each task that my group is working on.
+
+
+
+
+Feature List:
+
+1. A feature that allows users to click on a spot and immediately take a note.
+
+2. A feature that allows users to organize the notes by who created them/who claimed them.
+
+3. A feature that allows users to line up these notes on a timeline by their due date.
+
+4. A feature that allows users to claim tasks/notes created by other group members.
+
+
