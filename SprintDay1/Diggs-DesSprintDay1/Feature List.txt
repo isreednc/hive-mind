@@ -1,0 +1,6 @@
+Feature List:
+
+A feature that allows for Canvas interconnectivity (ie auto-updates based on assignments).
+A feature that allows organization tasks based on projects, groups, owner, etc.
+A feature that allows the user to set priority levels on tasks so that they are at the top of the ToDo list.
+A feature that allows the user to categorize project tasks by their completion rate or the assigned group member.
