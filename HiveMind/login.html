@@ -47,6 +47,9 @@
             background-color: white;
             height: 100%;
             width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .continue-embeds {
@@ -66,12 +69,13 @@
             padding-bottom: 8%;
         }
 
-        .continue-embeds img:nth-of-type(2), .continue-embeds img:nth-of-type(3) {
+        .continue-embeds img:nth-of-type(2),
+        .continue-embeds img:nth-of-type(3) {
 
             height: 10%;
             width: 66%;
             padding-bottom: 3%;
-            
+
 
         }
 
@@ -81,6 +85,10 @@
             padding-bottom: 10%;
         }
 
+        .email-login h1 {
+            padding-top: 10%;
+            ;
+        }
     </style>
 
 </head>
@@ -105,6 +113,15 @@
         </div>
 
         <div class="email-login">
+
+            <h1>Login to your account</h1>
+            <p>Don't have an account? <a href="">Sign Up Here!</a></p>
+
+            <h5>Email Address</h5>
+            <input type="email" id="email" name="email"><br><br>
+
+            <h5>Password</h5>
+            <input type="password" id="password" name="password"><br><br>
 
         </div>
 
