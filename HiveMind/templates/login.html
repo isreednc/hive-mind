@@ -117,11 +117,11 @@
             <h1>Login to your account</h1>
             <p>Don't have an account? <a href="">Sign Up Here!</a></p>
 
-            <h5>Email Address</h5>
-            <input type="email" id="email" name="email"><br><br>
-
-            <h5>Password</h5>
-            <input type="password" id="password" name="password"><br><br>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Submit">
+            </form>
 
         </div>
 

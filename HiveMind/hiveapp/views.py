@@ -5,13 +5,13 @@ from .forms import LoginForm
 
 # Create your views here.
 def index(request):
-    return render(request, 'login.html')
+    return render(request, 'homepage.html')
 
 def login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect("/hiveapp/")
+            return HttpResponseRedirect("../home")
     
     else:
         form = LoginForm()
