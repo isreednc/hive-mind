@@ -1,5 +1,7 @@
 {% load static %}
 
+<!-- The base html document for all templates.  -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +10,15 @@
     <title>{% block title %}Hive Mind{% endblock %}</title>
 
     {% block styles %}
-        <link rel="stylesheet" href="{% static 'main.css' %}">
+        <link rel="stylesheet" href="{% static 'main.css' %}">      <!-- defaults to main.css but can be overridden in child documents-->
     {% endblock %}
 </head>
 <body>
     <nav>
         {% block navbar %}
+            <div class="navbar">
+                <img src="https://i.ibb.co/cL3323b/Hive-Mindd2.png" alt="HiveMind Logo">
+            </div>
         {% endblock %}
     </nav>
 

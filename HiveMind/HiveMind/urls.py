@@ -20,5 +20,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="index")
+    path('', views.index, name="index"),
+    path('', include('django.contrib.auth.urls')),
+    path('', include('tasks.urls')),
+    path('', include('hiveapp.urls'))
 ]
