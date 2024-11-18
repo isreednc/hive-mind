@@ -6,10 +6,10 @@ def index(request):
     return render(request, 'homepage.html')
 
 def projectsPage(request):
-    return render(request, 'base/projects.html')
+    return render(request, 'hiveapp/projects.html')
 
 def timelinePage(request):
-    return render(request, 'base/timeline.html')
+    return render(request, 'hiveapp/timeline.html')
 
 def updatesPage(request):
-    return render(request, 'base/updates.html')
+    return render(request, 'hiveapp/updates.html')
