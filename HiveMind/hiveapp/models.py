@@ -1,3 +1,4 @@
 from django.db import models
 
-# Create your models here.
+# max character in each string field
+string_max = 200
