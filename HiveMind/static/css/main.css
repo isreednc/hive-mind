@@ -1,0 +1,8 @@
+:root {
+    --primary-color: #E2D2A3;
+}
+
+#main-content {
+    background-color: var(--primary-color);
+    height: 100vh;
+}
