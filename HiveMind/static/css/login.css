@@ -1,0 +1,82 @@
+#main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-rectangle {
+    /* margin-top: 5%; */
+    width: 70%;
+    height: 75%;
+    background-color: #E2D2A3;
+    display: flex;
+    flex-direction: row;
+}
+
+.email-login {
+    background-color: white;
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.continue-embeds {
+    background-color: #E2D2A3;
+    ;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+#logo-handler {
+    width: 80%;
+    height: 80%;
+    /* padding: 8%; */
+}
+
+/* Fixes aspect ratio */
+.continue-embeds img:first-of-type {
+    width: 100%;
+    height: auto;
+}
+
+#continues {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 120px;
+    box-sizing: border-box;
+    padding-bottom: 20%;
+}
+
+#continues img {
+    flex: 1 1 300px;
+    max-width: 70%;
+}
+
+/* .continue-embeds img:nth-of-type(2),
+.continue-embeds img:nth-of-type(3) {
+
+    height: 10%;
+    width: 66%;
+    padding-bottom: 3%;
+
+
+}
+
+.continue-embeds img:nth-of-type(4) {
+    height: 8%;
+    width: 65%;
+    padding-bottom: 10%;
+} */
+
+.email-login h1 {
+    padding-top: 10%;
+}
