@@ -1,3 +1,9 @@
+:root {
+    --primary-color: #E2D2A3;
+    /* --secondary-color: #1c1c84AA; */
+    --secondary-color: #FFFFFF80;
+}
+
 * {
     margin: 0;
 }
@@ -20,7 +26,7 @@ main {
 }
 
 .content-wrapper {
-    background-color: lightblue;
+    background-color: var(--primary-color);
     width: 100vw;
     height: 100%;
     position: relative;
@@ -42,9 +48,11 @@ main {
 }
 
 .new-note:hover {
+    background-color: var(--secondary-color);
     cursor: pointer;
-    box-shadow: black 3px 3px 10px,
-     white -1px -1px 5px;
+    backdrop-filter: blur(25px);
+    box-shadow: var(--secondary-color) 3px 3px 15px,
+     var(--secondary-color) -3px -3px 15px;
 }
 
 .new-note img {
