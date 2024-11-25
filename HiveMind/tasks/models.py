@@ -5,7 +5,6 @@ from django.contrib.auth.models import User, Group
 class Note(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
-    group = models.ForeignKey
     content= models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     is_complete = models.BooleanField(default=False)
