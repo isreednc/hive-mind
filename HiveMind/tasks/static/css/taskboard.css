@@ -1,0 +1,112 @@
+:root {
+    --primary-color: #E2D2A3;
+    /* --secondary-color: #1c1c84AA; */
+    --secondary-color: #FFFFFF80;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.content-wrapper {
+    background-color: var(--primary-color);
+    width: 100vw;
+    height: 100%;
+    position: relative;
+}
+
+.new-note {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    width: 100px;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.new-note:hover {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    backdrop-filter: blur(25px);
+    box-shadow: var(--secondary-color) 3px 3px 15px,
+     var(--secondary-color) -3px -3px 15px;
+}
+
+.new-note img {
+    width: 15%;
+    height: auto;
+}
+
+.card {
+    background-color: lightcoral;
+    width: 250px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* gap: 0.5rem; */
+    position:absolute;
+    top: 70px;
+    left: 70px;
+    overflow: hidden;
+}
+
+.card > * {
+    padding: 10px 20px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: grab;
+    background-color: rgba(255, 255, 255, 0.274);
+    padding: 20px;
+}
+
+.card-header:active {
+    cursor: grabbing;
+}
+
+.card-header * {
+    cursor: default;
+}
+
+.card-footer {
+    text-align: right;
+}
+
+.resize-handler {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    /* border-radius; */
+    cursor: nwse-resize;
+    padding: 0;
+    bottom: 0;
+    right: 0;
+    transform: translate(25%, 25%);
+}
