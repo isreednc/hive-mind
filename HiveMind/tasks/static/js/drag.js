@@ -1,12 +1,66 @@
+
 const headers = document.querySelectorAll('.card .card-header');
 
+console.log(headers);
+
 const navbarHeight = 0;
+
 
 headers.forEach((header) => {
     header.addEventListener('mousedown', onMouseDown);
 });
 
+function getCSRFToken() {
+    let csrfToken = null;
+        const cookies = document.cookie.split(';');
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'csrftoken') {
+                csrfToken = value;
+            }
+        });
+        return csrfToken;
+}
+
+function logNewPos(cardObj) {
+    const noteId = cardObj.id;
+    const top = cardObj.style.top;
+    const left = cardObj.style.left;
+
+    console.log(noteId);
+    console.log(top);
+    console.log(left);
+
+    const data = {
+        noteId: noteId,
+        top: top,
+        left: left
+    }
+
+    fetch('/update-note-position/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCSRFToken()  // Send CSRF token for security
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.success) {
+                    console.log('Position updated successfully');
+                } else {
+                    console.error('Error updating position');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+}
+
 function onMouseDown(event) {
+    console.log("mmousedown")
     const header = event.target;
     const card = header.parentElement;
 
@@ -27,11 +81,14 @@ function onMouseDown(event) {
 
         card.style.left = `${rightBound}px`;
         card.style.top = `${bottomBound}px`;
+
     }
 
     function onMouseUp() {
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
+
+        logNewPos(card);
     }
 
     document.addEventListener('mousemove', onMouseMove);

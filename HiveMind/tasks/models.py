@@ -12,6 +12,9 @@ class Note(models.Model):
     content= models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     is_complete = models.BooleanField(default=False)
+    color = models.TextField(max_length=9, default="#ffdcbd")
+    pos_top = models.TextField(max_length=7, default="20px")
+    pos_left = models.TextField(max_length=7, default="20px")
 
     def mark_completed(self):
         self.is_complete = True

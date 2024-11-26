@@ -3,22 +3,20 @@
 
 {% block title %}Tasks - Hive Mind {% endblock %}
 
-{% block styles %} <link rel="stylesheet" href="{% static 'css/taskboard.css' %}"> {% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/note_colors.css' %}"> 
+<link rel="stylesheet" href="{% static 'css/taskboard.css' %}">
+{% endblock %}
 
 {% block content %}
     <main>
-        <div class="navbar">
-            <div class="icon" id="logo">logo</div>
-            <div></div>
-        </div>
-
         <div class="content-wrapper">
             <div class="new-note">
                 <img src="icons/plus.svg" alt="plus icon">
                 <p>New Note</p>
             </div>
             {% for note in notes %}
-                <div class="card">
+                <div class="card" id="{{note.id}}" style="top: {{note.pos_top}}; left: {{note.pos_left}}; background-color: {{note.color}}">
                     <div class="card-header">
                         <p>{{ note.user }}</p>
                         <p>{{ note.created_at}}</p>
@@ -35,6 +33,7 @@
         </div>
     </main>
 
-    <script src="{% static 'js/drag.js' %}"></script>
-    <script src="{% static 'js/resize.js' %}"></script>
+    <!-- <script type="module" src="{% static 'js/api.js' %}"></script> -->
+    <script type="module" src="{% static 'js/drag.js' %}"></script>
+    <script type="module" src="{% static 'js/resize.js' %}"></script>
 {% endblock %}

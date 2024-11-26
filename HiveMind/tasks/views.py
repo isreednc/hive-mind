@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.models import Group
+from django.http import JsonResponse
 
 from .models import Note, Reply
 from .utils import *
+import json
 
 # Create your views here.
 def task_page(request, group_name):
@@ -21,3 +23,24 @@ def task_page(request, group_name):
         'group': current_group,
         'notes': notes
     })    
+
+def update_note_position(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)  # Parse the JSON data
+        note_id = data.get('noteId')
+        print(note_id)
+        top = data.get('top')
+        left = data.get('left')
+
+        # Find the note in the database by ID
+        try:
+            note = Note.objects.get(id=note_id)
+            note.pos_top = top
+            note.pos_left = left
+            note.save()  # Save the new position to the database
+
+            return JsonResponse({'success': True})
+        except Note.DoesNotExist:
+            return JsonResponse({'success': False, 'message': 'Note not found'})
+
+    return JsonResponse({'success': False, 'message': 'Invalid request method'})
