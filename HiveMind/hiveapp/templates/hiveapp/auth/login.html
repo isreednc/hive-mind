@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiveMind</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #EDE5C3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            border-bottom: 2px solid black;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+        }
+
+        .navbar img {
+            width: 5%;
+            height: 100%;
+            margin-right: 20px;
+        }
+
+        .center-rectangle {
+            margin-top: 5%;
+            width: 70%;
+            height: 75%;
+            background-color: #E2D2A3;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .email-login {
+            background-color: white;
+            height: 100%;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .continue-embeds {
+            background-color: #E2D2A3;
+            ;
+            height: 100%;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .continue-embeds img:first-of-type {
+            width: 69%;
+            height: 56%;
+            padding-bottom: 8%;
+        }
+
+        .continue-embeds img:nth-of-type(2),
+        .continue-embeds img:nth-of-type(3) {
+
+            height: 10%;
+            width: 66%;
+            padding-bottom: 3%;
+
+
+        }
+
+        .continue-embeds img:nth-of-type(4) {
+            height: 8%;
+            width: 65%;
+            padding-bottom: 10%;
+        }
+
+        .email-login h1 {
+            padding-top: 10%;
+
+        }
+
+        .submitbtn {
+            display: flex;
+            justify-content: center;
+        }
+
+        input[type="submit"] {
+            background-color: #E2D2A3;
+            width: 100%;
+            border-radius: 10px;
+            height: 80%
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <img src="https://i.ibb.co/cL3324b/Hive-Mindd2.png" alt="HiveMind Logo">
+    </div>
+
+    <div class="center-rectangle">
+
+        <div class="continue-embeds">
+
+            <img src="https://i.ibb.co/cL3324b/Hive-Mindd2.png" alt="HiveMind Logo">
+
+            <img class="continue" src="https://i.ibb.co/7N8qZvS/googlecontinue.png" alt="googlecontinue" border="0"></a>
+            <img class="continue" src="https://i.ibb.co/ctt3P2h/applecontinue.png" alt="applecontinue" border="0"></a>
+            <img class="continue" src="https://i.ibb.co/TtSMbtG/facebookcontinue.png" alt="facebookcontinue"
+                border="0"></a>
+
+        </div>
+        {% block content %}
+        <div class="email-login">
+
+            <h1>Login to your account</h1>
+            <p>Don't have an account? <a href="">Sign Up Here!</a></p>
+
+            <form action="" method=POST>
+                {% csrf_token %}
+                <h5>Email Address</h5>
+                <input type="email" id="email" name="username" placeholder="Email Address"><br><br>
+
+                <h5>Password</h5>
+                <input type="password" id="password" name="password" placeholder="Password"><br><br>
+                
+                <div class="submitbtn">
+                    <input type="submit" value="Login" name="loginbtn">
+                </div>
+
+            </form>
+            {% endblock %}
+        </div>
+
+    </div>
+
+</body>
