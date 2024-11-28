@@ -19,8 +19,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include("hiveapp.urls")),
+    path('hiveapp/', include('hiveapp.urls')),
     path('admin/', admin.site.urls),
-    path('', include("django.contrib.auth.urls")),
-    path('', include("tasks.urls")),
+    path('hiveapp/', include('django.contrib.auth.urls')),
+    path('', include('tasks.urls')),
 ]
