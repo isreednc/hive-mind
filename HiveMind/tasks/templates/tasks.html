@@ -4,6 +4,7 @@
 {% block title %}Tasks - Hive Mind {% endblock %}
 
 {% block styles %}
+{{ block.super }}
 <link rel="stylesheet" href="{% static 'css/note_colors.css' %}"> 
 <link rel="stylesheet" href="{% static 'css/taskboard.css' %}">
 {% endblock %}
@@ -30,9 +31,12 @@
                     <div class="resize-handler"></div>
                 </div>
             {% endfor %}
+
+            <div class="reply-panel">
+                Replies
+            </div>
         </div>
     </main>
-
     <!-- <script type="module" src="{% static 'js/api.js' %}"></script> -->
     <script type="module" src="{% static 'js/drag.js' %}"></script>
     <script type="module" src="{% static 'js/resize.js' %}"></script>
