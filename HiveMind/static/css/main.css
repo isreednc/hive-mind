@@ -2,7 +2,11 @@
     --primary-color: #E2D2A3;
 }
 
+html, body {
+    background-color: var(--primary-color);
+}
+
 #main-content {
     background-color: var(--primary-color);
-    height: 100vh;
+    height: 100%;
 }
