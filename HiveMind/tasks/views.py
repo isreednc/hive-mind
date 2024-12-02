@@ -44,3 +44,16 @@ def update_note_position(request):
             return JsonResponse({'success': False, 'message': 'Note not found'})
 
     return JsonResponse({'success': False, 'message': 'Invalid request method'})
+
+def create_note(request, group_name):
+    current_user = request.user
+    current_group = Group.objects.get(name=group_name)
+
+    if validate_user_group(current_user, current_group) == False:
+        # TODO: redirect user to their home page
+        pass
+
+    return render(request, 'create-note.html', {
+        'user': current_user,
+        'group': current_group,
+    })
