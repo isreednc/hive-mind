@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import Group
 from django.http import JsonResponse
+from django.utils.timezone import now
 
 from .models import Note, Reply
 from .utils import *
@@ -21,7 +22,8 @@ def task_page(request, group_name):
 
     return render(request, 'tasks.html', {
         'group': current_group,
-        'notes': notes
+        'notes': notes,
+        'user': user,
     })    
 
 def update_note_position(request):
@@ -45,15 +47,36 @@ def update_note_position(request):
 
     return JsonResponse({'success': False, 'message': 'Invalid request method'})
 
-def create_note(request, group_name):
-    current_user = request.user
-    current_group = Group.objects.get(name=group_name)
+def submit_new_note(request, group_name):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)  # Parse the JSON data from the request
+            content = data.get('note')
 
-    if validate_user_group(current_user, current_group) == False:
-        # TODO: redirect user to their home page
-        pass
+            if not content or content.strip() == "":
+                return JsonResponse({'error': 'Note content cannot be empty.'}, status=400)
 
-    return render(request, 'create-note.html', {
-        'user': current_user,
-        'group': current_group,
-    })
+            current_group = Group.objects.get(name=group_name)
+
+            # Create a new note
+            note = Note.objects.create(
+                content=content,
+                user=request.user,
+                group=current_group,
+                created_at=now()
+            )
+
+            return JsonResponse({
+                'message': 'Note submitted successfully.',
+                'note': {
+                    'id': note.id,
+                    'content': note.content,
+                    'user': note.user.username,
+                    'created_at': note.created_at.isoformat(),
+                }
+            }, status=201)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
+    else:
+        return JsonResponse({'error': 'Only POST requests are allowed.'}, status=405)
