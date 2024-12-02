@@ -1,15 +1,23 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout, models
 from django.contrib import messages
 
 # Create your views here.
 def index(request):
     return render(request, 'homepage.html')
 
+@login_required
 def projectsPage(request):
-    return render(request, 'hiveapp/projects.html')
+    current_user = request.user
+    user_groups = current_user.groups.all()
+    return render(request, 'hiveapp/projects.html', {
+        'user': current_user,
+        'groups': user_groups,
+    })
 
+@login_required
 def timelinePage(request):
     return render(request, 'hiveapp/timeline.html')
 

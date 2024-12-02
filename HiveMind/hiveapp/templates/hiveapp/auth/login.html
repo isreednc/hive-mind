@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HiveMind</title>
 
+{% block styles %}
     <style>
         body {
             margin: 0;
@@ -102,15 +99,12 @@
         }
 
     </style>
+{% endblock %} 
 
-</head>
 
-<body>
+    
 
-    <div class="navbar">
-        <img src="https://i.ibb.co/cL3324b/Hive-Mindd2.png" alt="HiveMind Logo">
-    </div>
-
+    {% block content %}
     <div class="center-rectangle">
 
         <div class="continue-embeds">
@@ -123,7 +117,6 @@
                 border="0"></a>
 
         </div>
-        {% block content %}
         <div class="email-login">
 
             <h1>Login to your account</h1>
@@ -142,9 +135,8 @@
                 </div>
 
             </form>
-            {% endblock %}
         </div>
 
     </div>
 
-</body>
+    {% endblock %}
