@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
+{% csrf_token %}
+
+
 
 {% block content %}
     <h1>Projects</h1>
     <p>This is the Projects page.</p>
+
+    {% for group in groups %}
+        <div class="project-card">
+            <img src="" alt="project-snapshot">
+            <div class="project-info">
+                <div class="info-header">
+                    <p>{{group.name}}</p>
+                </div>
+                <div class="more-info">
+
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

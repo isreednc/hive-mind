@@ -21,6 +21,6 @@ from django.urls import path, include
 urlpatterns = [
     path('hiveapp/', include('hiveapp.urls')),
     path('admin/', admin.site.urls),
-    path('hiveapp/', include('django.contrib.auth.urls')),
+    # path('hiveapp/', include('django.contrib.auth.urls')),
     path('', include('tasks.urls')),
 ]
