@@ -1,0 +1,67 @@
+/* styles.css */
+body {
+    margin: 0;
+    background-color: #EDE5C3;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 70%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 1%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.Project {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center;
+    justify-content: space-between; /* Distribute space evenly between items */
+    height: 100%; /* Make the Project fill its grid cell */
+    padding-top: 1;
+    overflow: hidden;
+    text-align: center;
+    max-height: 95%;
+}
+
+.Project img {
+    width: 100%; /* Fill the width of the Project */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 70%; /* Restrict height to avoid overlapping */
+    object-fit: cover; /* Scale image to fit without distortion */
+    border-radius: 5px;
+    margin-bottom: 10px; 
+}
+
+.Project p {
+    font-size: 1em;
+    color: #333;
+    margin: 0;
+    flex-grow: 1; /* Allow the text to expand if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word; /* Ensure long words break to the next line */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.new-project {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
