@@ -31,6 +31,10 @@ main {
     left: 0px;
 }
 
+.card.hidden {
+    display: none;
+}
+
 .new-note {
     position: fixed;
     top: 91px;

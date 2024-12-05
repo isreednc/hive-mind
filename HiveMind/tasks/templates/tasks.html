@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% csrf_token %}
+
 {% block title %}Tasks - Hive Mind {% endblock %}
 
 {% block styles %}
@@ -32,6 +34,20 @@
                 </div>
             {% endfor %}
 
+            <div class="card hidden" id="create-card" style="top: 50%; left: 50%; background-color: var(--purple);" data-group-name="{{group.name}}">
+                <div class="card-header">
+                    <p id="username">{{ user.username }}</p>
+                    <p id="create-card-time"></p>
+                    <p id="cancel-card">X</p>
+                </div>
+                <div class="card-body">
+                    <textarea placeholder="Write your note here..."></textarea>
+                </div>
+                <div class="card-footer">
+                    <button id="new-note-submit-btn">Submit</button>
+                </div>
+            </div>
+
             <div class="reply-panel">
                 Replies
             </div>
@@ -40,4 +56,5 @@
     <!-- <script type="module" src="{% static 'js/api.js' %}"></script> -->
     <script type="module" src="{% static 'js/drag.js' %}"></script>
     <script type="module" src="{% static 'js/resize.js' %}"></script>
+    <script type="module" src="{% static 'js/create-note.js' %}"></script>
 {% endblock %}
