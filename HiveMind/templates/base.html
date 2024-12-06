@@ -19,7 +19,7 @@
     {% include 'navbar.html' %}
     <br>
     <!-- Content -->
-    <div class="container">
+    <div class="content-wrapper">     <!-- Having issues with the bootsrap .container here so i removed it-->         
         {% if messages %}
             {% for message in messages %}                
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">

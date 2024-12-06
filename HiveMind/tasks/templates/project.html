@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% csrf_token %}
+
+{% block styles %}
+{{block.super}}
+    <link rel="stylesheet" href="{% static 'css/project.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="new-project">
+        <img src="https://i.ibb.co/3CGjGMC/NewProj.png" alt="plus icon">
+    </div>
+
+    <div class="projects_container">
+ 
+
+    </div>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalButton" class="close">&times;</span>
+            <h2>Create New Project</h2>
+            <form id="projectForm">
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName" name="projectName" required><br><br>
+
+                <label for="projectDescription">Description:</label><br>
+                <textarea id="projectDescription" name="projectDescription" required></textarea><br><br>
+
+                <button type="submit">Create Project</button>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="{% static 'js/project.js' %}"></script>
+{% endblock %}

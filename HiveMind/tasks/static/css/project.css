@@ -1,0 +1,123 @@
+/* styles.css */
+/* body {
+    margin: 0;
+    background-color: #EDE5C3;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    background-color: var(--primary-color);
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 76px;      /* navbar height */
+    left: 0px;
+}
+
+.projects_container {
+    margin: 10% auto;
+    width: 70%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 1%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.Project {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center;
+    justify-content: space-between; /* Distribute space evenly between items */
+    height: 100%; /* Make the Project fill its grid cell */
+    padding-top: 1;
+    overflow: hidden;
+    text-align: center;
+    max-height: 95%;
+}
+
+.Project img {
+    width: 100%; /* Fill the width of the Project */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 70%; /* Restrict height to avoid overlapping */
+    object-fit: cover; /* Scale image to fit without distortion */
+    border-radius: 5px;
+    margin-bottom: 10px; 
+}
+
+.Project p {
+    font-size: 1em;
+    color: #333;
+    margin: 0;
+    flex-grow: 1; /* Allow the text to expand if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word; /* Ensure long words break to the next line */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.new-project {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+/* Basic modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with transparency */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: white;
+    margin: 10% auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+

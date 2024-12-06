@@ -80,3 +80,16 @@ def submit_new_note(request, group_name):
             return JsonResponse({'error': 'Invalid JSON data.'}, status=400)
     else:
         return JsonResponse({'error': 'Only POST requests are allowed.'}, status=405)
+
+def project_page(request, user_id):
+    current_user = request.user;
+    if (user_id != current_user.id):
+        return render(request, 'permission_denied.html')
+
+    user_group_projects = current_user.groups.all();
+
+    return render(request, 'project.html', {
+        'projects': user_group_projects,
+        'user': current_user,
+    })
+        

@@ -10,12 +10,9 @@ def index(request):
 
 @login_required
 def projectsPage(request):
-    current_user = request.user
-    user_groups = current_user.groups.all()
-    return render(request, 'hiveapp/projects.html', {
-        'user': current_user,
-        'groups': user_groups,
-    })
+    current_user_id = request.user.id
+    return redirect('project_page', user_id=current_user_id)
+    
 
 @login_required
 def timelinePage(request):
