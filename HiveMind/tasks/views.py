@@ -1,13 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.utils.timezone import now
+from django.views.decorators.csrf import csrf_exempt
+
+from django.contrib.auth.decorators import login_required
+from django.middleware.csrf import get_token
 
 from .models import Note, Reply
 from .utils import *
 import json
 
-# Create your views here.
+# NOTE: group == project
+
 def task_page(request, group_name):
     if request.method != "GET":
         pass    # TODO
@@ -93,3 +98,49 @@ def project_page(request, user_id):
         'user': current_user,
     })
         
+# def create_group(request):
+#     user = request.user
+#     if request.method == 'POST':
+#         group_name = request.POST.get('name')  # Or use request.POST['name']
+#         if group_name:
+#             Group.objects.create(name=group_name)
+#             Group.user_set.add(user)
+
+#             HttpResponse(f'Project {group_name} created successfully!')
+#             return redirect('project_page', user_id=user.id)
+#         else:
+#             return HttpResponse('No project name provided.', status=400)
+#     return HttpResponse('Invalid request method.', status=405)
+
+# Had to use chatgpt cause im dumb
+@csrf_exempt
+@login_required  # Ensure only authenticated users can access this view
+def create_group(request):
+    if request.method == 'POST' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        try:
+            # Ensure the CSRF token is valid
+            # csrf_token = request.headers.get('X-CSRFToken')
+            # if csrf_token != get_token(request):  # Validate CSRF token
+            #     return JsonResponse({"message": "CSRF token is missing or incorrect."}, status=403)
+
+            # Parse JSON data from the request body
+            data = json.loads(request.body.decode('utf-8'))
+            group_name = data.get('name')
+
+            if not group_name:
+                return JsonResponse({"message": "Group name is required."}, status=400)
+
+            # Create the new group
+            group = Group.objects.create(name=group_name)
+
+            # Add the current user to the newly created group
+            group.user_set.add(request.user)
+
+            return JsonResponse({"message": "Group created successfully and you were added to it!"}, status=200)
+            # return redirect('project_page', user_id=request.user.id)
+
+        except Exception as e:
+            return JsonResponse({"message": f"Error: {str(e)}"}, status=500)
+
+    # If the request is not a POST with fetch (AJAX), return an error
+    return JsonResponse({"message": "Invalid request method."}, status=405)

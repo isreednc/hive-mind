@@ -50,14 +50,40 @@ newProjBtn.addEventListener("click", () =>{
     const projectForm = document.getElementById('projectForm');
     projectForm.onsubmit = function(event) {
         event.preventDefault(); // Prevent the form from submitting
+        
         const projectName = document.getElementById('projectName').value;           // represents the group name in django
-        const projectDescription = document.getElementById('projectDescription').value;
-        console.log('New Project Created: ', projectName, projectDescription);
+        // const csrfToken = getCSRFToken();  // Get CSRF token
+
+        const data = {
+            name: projectName
+        }
+
+        fetch("/create-group/", {
+        method: "POST",
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",  // Indicate this is an AJAX request
+            "Content-Type": "application/json",    // We're sending JSON data
+            // "X-CSRFToken": csrfToken              // Include CSRF token for security
+        },
+        body: JSON.stringify(data)  // Send data as JSON
+        })
+        .then(response => response.json())  // Parse JSON response
+        .then(data => {
+            location.reload();
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            document.getElementById("responseMessage").innerHTML = "<p style='color: red;'>Error while creating the group.</p>";
+        });
+
+
+        console.log('New Project Was Not Created: ', projectName);
         modal.style.display = "none"; // Close modal after form submission
+            
+        // syntax for creating card on the page
+        // createCard("https://i.ibb.co/D7ykSY6/HiveMind.png", projectName);
     }
 
-    // syntax for creating card on the page
-    createCard("https://i.ibb.co/D7ykSY6/HiveMind.png", projectName);
 });
 
 openModalButton.onclick = function() {
@@ -68,5 +94,17 @@ window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
+}
+
+function getCSRFToken() {
+    let csrfToken = null;
+        const cookies = document.cookie.split(';');
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'csrftoken') {
+                csrfToken = value;
+            }
+        });
+        return csrfToken;
 }
 
