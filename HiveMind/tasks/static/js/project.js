@@ -3,6 +3,7 @@ const modal = document.getElementById("projectModal");
 const closeModalButton = document.getElementById("closeModalButton");
 const openModalButton = document.getElementsByClassName("new-project");
 
+// Not being used at the moment
 function createCard(imageSrc, labelText) {
 
     const container = document.querySelector(".container");
@@ -27,19 +28,6 @@ function createCard(imageSrc, labelText) {
     }
 }
 
-// For redirecting to the group page when clicking a proj
-document.addEventListener("DOMContentLoaded", () => {
-
-    const projectElements = document.querySelectorAll(".Project");
-
-    projectElements.forEach((project) => {
-        project.addEventListener("click", () => {
-            // your redirect code to the project taskboard
-        });
-    });
-});
-
-
 // Creating a new project
 const newProjBtn = document.querySelector(".new-project");
 newProjBtn.addEventListener("click", () =>{
@@ -58,6 +46,7 @@ newProjBtn.addEventListener("click", () =>{
             name: projectName
         }
 
+        // Creating the project
         fetch("/create-group/", {
         method: "POST",
         headers: {
@@ -69,6 +58,7 @@ newProjBtn.addEventListener("click", () =>{
         })
         .then(response => response.json())  // Parse JSON response
         .then(data => {
+            // reload the page to render the new project
             location.reload();
         })
         .catch(error => {

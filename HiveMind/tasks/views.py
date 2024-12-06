@@ -13,6 +13,7 @@ import json
 
 # NOTE: group == project
 
+@csrf_exempt
 def task_page(request, group_name):
     if request.method != "GET":
         pass    # TODO
@@ -30,6 +31,10 @@ def task_page(request, group_name):
         'notes': notes,
         'user': user,
     })    
+
+@csrf_exempt
+def get_task_page(request, group_name):
+    return redirect('taskboard', group_name)
 
 def update_note_position(request):
     if request.method == 'POST':

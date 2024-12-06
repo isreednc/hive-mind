@@ -7,5 +7,7 @@ urlpatterns = [
     path('submit-note/<str:group_name>/', views.submit_new_note, name='submit-new-note'),
 
     path('projects/<int:user_id>/', views.project_page, name='project_page'),
-    path('create-group/', views.create_group, name='create-group')
+    path('create-group/', views.create_group, name='create-group'),
+
+    path('get-task-page/<str:group_name>', views.get_task_page, name='get_task_page'),
 ]

@@ -16,10 +16,10 @@
 
     <div class="projects_container">
         {% for project in projects %}
-            <div class="Project">
+            <a class="Project" id="{{project.name}}" href="{% url 'taskboard' group_name=project.name %}">
                 <img src="" alt="project snapshot">
                 <p>{{project.name}}</p>
-            </div>
+            </a>
         {% endfor %}
     </div>
 

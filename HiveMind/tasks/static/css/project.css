@@ -8,6 +8,12 @@
     align-items: center;
     height: 100vh;
 } */
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
 main {
     height: 100%;
     display: flex;
@@ -51,6 +57,13 @@ main {
     overflow: hidden;
     text-align: center;
     max-height: 95%;
+}
+
+.Project:hover {
+    transform: translateY(-10px);  /* Slightly lift the card when hovered */
+    background-color: #f7f7f7;    /* Light background change */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    cursor: pointer;              /* Change cursor to pointer */
 }
 
 .Project img {
