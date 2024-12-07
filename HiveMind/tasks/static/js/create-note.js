@@ -73,7 +73,7 @@ function sendDataToBackend(noteContent, group_name) {
         })
         .then(data => {
             console.log("Note submitted successfully:", data);
-            alert("Note submitted successfully!");
+            location.reload();
         })
         .catch(error => {
             console.error("Error submitting note:", error);

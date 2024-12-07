@@ -17,7 +17,7 @@
     <div class="projects_container">
         {% for project in projects %}
             <a class="Project" id="{{project.name}}" href="{% url 'taskboard' group_name=project.name %}">
-                <img src="" alt="project snapshot">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVYS7KEXYFAwqdRCW81e4DSR_nSLYSFStx1Q&s" alt="project snapshot">
                 <p>{{project.name}}</p>
             </a>
         {% endfor %}
