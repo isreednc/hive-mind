@@ -54,6 +54,14 @@
         </div>
     </main>
     <!-- <script type="module" src="{% static 'js/api.js' %}"></script> -->
+    <script>
+        const thisNavLink = document.getElementById("taskboard-link");
+        thisNavLink.style.padding = "10px 20px";
+        thisNavLink.style.background = "rgba(0,0,0,0.3)";
+        thisNavLink.style.backdropFilter = "blur(10px)";
+        thisNavLink.style.borderRadius = "5%";
+        thisNavLink.style.boxShadow = "1px 1px 5px black";
+    </script>
     <script type="module" src="{% static 'js/drag.js' %}"></script>
     <script type="module" src="{% static 'js/resize.js' %}"></script>
     <script type="module" src="{% static 'js/create-note.js' %}"></script>

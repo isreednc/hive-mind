@@ -1,6 +1,9 @@
 document.querySelectorAll('.resize-handler').forEach((handler) => {
     handler.addEventListener('mousedown', onResizeMouseDown);
 });
+ 
+const defaultCardHeader = document.querySelector('.card-header');
+const defaultCardContent = document.querySelector('.card-body');
 
 function onResizeMouseDown(event) {
     const handler = event.target;
@@ -9,8 +12,8 @@ function onResizeMouseDown(event) {
     const cardContent = card.querySelector('.card-body');
     const cardFooter = card.querySelector('.card-footer');
 
-    const minWidth = Math.max(cardHeader.offsetWidth, cardContent.offsetWidth);
-    const minHeight = Math.max(cardHeader.offsetHeight + cardContent.offsetHeight + cardFooter.offsetHeight, cardHeader.offsetHeight);
+    const minWidth = Math.max(defaultCardHeader.offsetWidth, defaultCardContent.offsetWidth);
+    const minHeight = Math.max(defaultCardHeader.offsetHeight + defaultCardContent.offsetHeight, defaultCardHeader.offsetHeight);
 
     const startWidth = card.offsetWidth;
     const startHeight = card.offsetHeight;
