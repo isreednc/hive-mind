@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout, models
 from django.contrib import messages
 
+from tasks.utils import *
+from .models import Timeline_Node
+
 # Create your views here.
 def index(request):
     return render(request, 'homepage.html')
@@ -15,8 +18,22 @@ def projectsPage(request):
     
 
 @login_required
-def timelinePage(request):
-    return render(request, 'hiveapp/timeline.html')
+def timelinePage(request, group_name):
+    if (request.method != "GET"):
+        pass
+
+    user = request.user;
+    if validate_user_group(user, group_name) == False:
+        return redirect('home')
+    
+    current_group = Group.objects.get(name=group_name)
+    timeline_nodes = Timeline_Node.objects.filter(group=current_group)
+
+    return render(request, 'hiveapp/timeline.html', {
+        'user': user,
+        'group': current_group,
+        'timeline_nodes': timeline_nodes,
+    })
 
 def updatesPage(request):
     return render(request, 'hiveapp/updates.html')
