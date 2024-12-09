@@ -92,7 +92,7 @@ def submit_new_note(request, group_name):
         return JsonResponse({'error': 'Only POST requests are allowed.'}, status=405)
 
 def project_page(request, user_id):
-    current_user = request.user;
+    current_user = request.user
     if (user_id != current_user.id):
         return render(request, 'permission_denied.html')
 
