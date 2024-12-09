@@ -23,14 +23,14 @@
                     <!-- Notes for this project -->
                     
                         <div class="notes">
-                            {% for note in notes %}
-                                {% if node.note.group.id == project.id %}
-                                    <div class="card" style="background-color: {{note.color}}">
+                            {% for node in nodes %}
+                                {% if node.group.id == project.id %}
+                                    <div class="card" style="background-color: {{node.color}}">
                                         <div class="card-header">
-                                            <p>{{ note.created_at|date:"Y-m-d H:i" }}</p>
+                                            <p>{{ node.created_at|date:"Y-m-d H:i" }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <p>{{ note.content }}</p>
+                                            <p>{{ node.content }}</p>
                                         </div>
                                     </div>
                                 {% endif %}
