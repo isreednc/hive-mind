@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.middleware.csrf import get_token
 
-from .models import Note, Reply
+from .models import Note, Reply, Timeline_Node
 from .utils import *
 import json
 
@@ -149,3 +149,18 @@ def create_group(request):
 
     # If the request is not a POST with fetch (AJAX), return an error
     return JsonResponse({"message": "Invalid request method."}, status=405)
+
+def timeline_page(request, user_id):
+    current_user = request.user;
+    if (user_id != current_user.id):
+        return render(request, 'permission_denied.html')
+
+    user_group_projects = current_user.groups.all()
+    # nodes = Timeline_Node.objects.all()
+    nodes = Note.objects.all()
+
+    return render(request, 'timeline.html', {
+        'projects': user_group_projects,
+        'user': current_user,
+        'nodes': nodes,
+    })

@@ -10,4 +10,6 @@ urlpatterns = [
     path('create-group/', views.create_group, name='create-group'),
 
     path('get-task-page/<str:group_name>', views.get_task_page, name='get_task_page'),
+
+    path('timeline/<int:user_id>/', views.timeline_page, name='timeline_page'),
 ]

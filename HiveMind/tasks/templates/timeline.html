@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/note_colors.css' %}">
+<!--<link rel="stylesheet" href="{% static 'css/project.css' %}"> -->
+<link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="timeline">
+        <h1>Task Timeline</h1>
+        
+            {% for project in projects %}
+                <div class="project">
+                    <!-- Project Name -->
+                    <a href="{% url 'taskboard' group_name=project.name %}">
+                        <h2>{{ project.name }}</h2>
+                    </a>
+                    
+                    <!-- Notes for this project -->
+                    
+                        <div class="notes">
+                            {% for note in notes %}
+                                {% if node.note.group.id == project.id %}
+                                    <div class="card" style="background-color: {{note.color}}">
+                                        <div class="card-header">
+                                            <p>{{ note.created_at|date:"Y-m-d H:i" }}</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>{{ note.content }}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                {% empty %}
+                                <p>No notes available for this project.</p>
+                            {% endfor %}
+                        </div>
+                    
+                </div>
+            {% empty %}
+                <p>No projects available.</p>
+            {% endfor %}
+        
+    </div>
+</main>
+{% endblock %}

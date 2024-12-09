@@ -28,3 +28,9 @@ class Reply(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     content= models.TextField()
+
+class Timeline_Node(models.Model):
+    note = models.ForeignKey(Note, on_delete=models.CASCADE)
+
+    def __str__(self):
+         return f"Note: {self.note.content[:30]} by {self.note.user.username} date: {self.note.created_at}"
