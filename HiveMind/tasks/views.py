@@ -164,3 +164,14 @@ def timeline_page(request, user_id):
         'user': current_user,
         'nodes': nodes,
     })
+
+@csrf_exempt
+def delete_project(request, project_id):
+    if request.method == 'POST':
+        try:
+            project = Group.objects.get(id=project_id)
+            project.delete()
+            return JsonResponse({'message': 'Project deleted successfully'}, status=200)
+        except Group.DoesNotExist:
+            return JsonResponse({'message': 'Project not found'}, status=404)
+    return JsonResponse({'message': 'Invalid method'}, status=405)

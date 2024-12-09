@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% csrf_token %}
-
+{% load static %}
 
 
 {% block content %}
@@ -14,6 +14,9 @@
                 <div class="info-header">
                     <p>{{group.name}}</p>
                 </div>
+                <button class="delete-btn">
+                    <img src="{% static 'images/x-solid.svg' %}" alt="X">
+                </button>
                 <div class="more-info">
 
                 </div>

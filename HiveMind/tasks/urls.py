@@ -8,6 +8,7 @@ urlpatterns = [
 
     path('projects/<int:user_id>/', views.project_page, name='project_page'),
     path('create-group/', views.create_group, name='create-group'),
+    path('delete-project/<int:project_id>/', views.delete_project, name='delete-group'),
 
     path('get-task-page/<str:group_name>', views.get_task_page, name='get_task_page'),
 
