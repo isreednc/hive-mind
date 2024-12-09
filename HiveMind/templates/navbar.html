@@ -20,9 +20,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'timeline_page' user_id=request.user.id %}">Timeline</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'updates' %}">Updates</a>
-                    </li>
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Login</a>
@@ -37,7 +34,7 @@
                 <div class="project-switcher" style="display: flex; justify-content: center; align-items: center; width: 50%; gap: 30px; margin-right: 17%;">
                     <a class="nav-link" id="taskboard-link" href="{% url 'taskboard' group.name %}">Taskboard</a>
                     <h1 class="navbar-brand" style="margin-right: 0;">{{group.name}}</h1>
-                    <a class="nav-link" id="timeline-link" href="{% url 'timeline' group.name %}">Timeline</a>
+                    <a class="nav-link" id="timeline-link" href="/timeline/1/">Timeline</a>
                 </div>
                 {% endif %}
                 <ul class="navbar-nav">
